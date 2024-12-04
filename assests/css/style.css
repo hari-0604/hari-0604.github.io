@@ -1,0 +1,146 @@
+/* General Reset and Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+  }
+  
+  /* Header */
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+    align-items: center;
+  }
+  
+  .logo h1 {
+    font-size: 2.5rem;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+    color: #ff7e5f;
+  }
+  
+  /* Section Styling */
+  .row {
+    padding: 60px 20px;
+  }
+  
+  .home-content {
+    width: 50%;
+    padding-right: 20px;
+  }
+  
+  .home-content h1 {
+    font-size: 3rem;
+    color: #222;
+  }
+  
+  .home-content p {
+    margin: 20px 0;
+  }
+  
+  .home-image img {
+    max-width: 100%;
+    border-radius: 50%;
+  }
+  
+  .buttons button {
+    margin: 10px 10px 0 0;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .primary-btn {
+    background-color: #ff7e5f;
+    color: white;
+  }
+  
+  .secondary-btn {
+    background-color: #222;
+    color: white;
+  }
+  
+  /* Projects Section */
+  .projects {
+    background-color: #f7f7f7;
+  }
+  
+  .projects-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .project-item {
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .project-item h3 a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .project-item button {
+    background-color: #ff7e5f;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .project-item button a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Services Section */
+  .services {
+    background-color: #e0f7fa;
+  }
+  
+  .services-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .service-item {
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10
+  
