@@ -5,25 +5,206 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aranmula Hari Krishna | Full Stack Developer</title>
     <link rel="icon" href="assets/images/ball.png" type="image/x-icon" />
-    <link rel="stylesheet" href="assests/css/style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        background-color: #282c34;
+        padding: 20px;
+      }
+
+      .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header h1 {
+        color: #fff;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav ul li a:hover {
+        color: #61dafb;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 40px 0;
+      }
+
+      section {
+        padding: 40px 0;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .home-content {
+        flex: 1;
+      }
+
+      .home-image {
+        flex: 1;
+        text-align: center;
+      }
+
+      .home-image img {
+        width: 80%;
+        max-width: 400px;
+        border-radius: 50%;
+      }
+
+      .projects-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .project-item {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: calc(33.333% - 20px);
+        text-align: center;
+      }
+
+      .project-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .project-item p {
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: #61dafb;
+        border: none;
+        padding: 10px 20px;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #21a1f1;
+      }
+
+      .contact-form {
+        flex: 1;
+      }
+
+      .contact-info {
+        flex: 1;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      footer {
+        background-color: #282c34;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        .header-row {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        nav ul {
+          flex-direction: column;
+          margin-top: 20px;
+        }
+
+        nav ul li {
+          margin: 10px 0;
+        }
+
+        .project-item {
+          width: calc(50% - 20px);
+        }
+      }
+    </style>
   </head>
+
   <body>
     <div class="container">
-      <div class="header-row">
-        <div class="logo">
-          <h1>Aranmula Hari Krishna</h1>
+      <header>
+        <div class="header-row">
+          <div class="logo">
+            <h1>Aranmula Hari Krishna</h1>
+            <p>Full Stack Developer</p>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
         </div>
-        <nav>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-      <section id="home" class="row">
+      </header>
+
+      <!-- Home Section -->
+      <section id="home" class="row home">
         <div class="home-content">
           <h1>Full Stack Developer</h1>
           <p>
@@ -39,18 +220,25 @@
           <img src="https://picsum.photos/id/2/400/400" alt="Profile Image" />
         </div>
       </section>
+
+      <!-- Projects Section -->
       <section id="projects" class="row projects">
         <h1>Projects</h1>
         <div class="projects-container">
           <div class="project-item">
             <h3><a href="project1.html">Project 1: Online Store</a></h3>
-            <p>A fully functional e-commerce web application.</p>
+            <p>A fully functional e-commerce web application built with React, Node.js, and MongoDB.</p>
             <button><a href="project1.html">View Project</a></button>
           </div>
-    
+          <div class="project-item">
+            <h3><a href="project2.html">Project 2</a></h3>
+<!--             <p>A personal portfolio website showcasing skills, projects, and experience.</p> -->
+            <button><a href="project2.html">View Project</a></button>
           </div>
         </div>
       </section>
+
+      <!-- Services Section -->
       <section id="services" class="row services">
         <h1>Services</h1>
         <div class="services-container">
@@ -68,10 +256,13 @@
           </div>
         </div>
       </section>
+
+      <!-- About Section -->
       <section id="about" class="row about">
         <h1>About Me</h1>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia ducimus quam voluptatum, ipsum saepe eveniet optio, perferendis quas voluptatem assumenda minima officiis reiciendis libero recusandae vitae provident necessitatibus ut magnam!
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. 
+          Curabitur aliquet felis id mauris maximus, in fringilla enim tincidunt.
         </p>
         <h2>Skills</h2>
         <ul>
@@ -88,6 +279,8 @@
           <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" />
         </div>
       </section>
+
+      <!-- Contact Section -->
       <section id="contact" class="row contact">
         <h1>Contact Me</h1>
         <div class="contact-content">
@@ -100,17 +293,4 @@
               <button type="submit">Send Message</button>
             </form>
           </div>
-          <div class="contact-info">
-            <h3>Contact Info</h3>
-            <p><strong>Email:</strong> aranmula@example.com</p>
-            <p><strong>Phone:</strong> +91 343 445 6789</p>
-            <p><strong>Address:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </div>
-      </section>
-      <footer>
-        <p>&copy; 2024 Aranmula Hari Krishna. All Rights Reserved.</p>
-      </footer>
-    </div>
-  </body>
-</html>
+          <div class
