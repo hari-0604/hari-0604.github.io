@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-        function showData(){
-            alert("Hi all!!!!");
-            let name=document.getElementById("name").value;
-            let email=document.getElementById("email").value;
-            let password=document.getElementById("password").value;
-            let datetime=document.getElementById("datetime").value;
-            data.innerHTML=name+ "|" + email + "|" + password+ "|" +datetime;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document </title>
+    <style>
+        a{
+            text-decoration: none;
+            margin: 5px;
+              color:white;
+            padding: 5px;
         }
+        iframe {
+            margin:10px;
+            width: 1200px;
+            border:none;
+            height: 600px;
+        }
+        .page {
+          background-color: blue;
+          width:5px;
+          border-radius: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="divTitle"></div>
+      <hr>
+      <div>
+        <iframe name="tempFrm" src="temp1.html"></iframe>
+      </div>
+    </div>
+    <script>
+      str = "<b>Temp File:</b>";
+      for (let i = 1; i <= 30; i++) {
+        str += `<a href="temp${i}.html" target="tempFrm" class="page">${i}</a>`;
+        
+      }
+      divTitle.innerHTML = str
+      console.log(str)
     </script>
-</head>
-<body>
-    <h1>Registration Form</h1>
-    <p><input type="text" id="name" placeholder="Enter Username" /></p>
-    <p><input type="text" id="email" placeholder="Enter Email Address" /></p>
-    <p><input type="password" id="password" placeholder="Password" /></p>
-    <p><input type="datetime-local" id="datetime" placeholder="Enter DOB" /></p>
-    <button onclick="showData()">Register</button>
-
-
-
-    <hr/>
-    <div id="data">Testing</div>
-
-</body>
+  </body>
 </html>
