@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h2>Simple Calculator</h2>
+    <input type="number" id="number1" placeholder="Enter a number">
+    <input type="number" id="number2" placeholder="Enter a number">
+    <br><br>
+    
+    <button id="add">Add</button>
+    <button id="subtract">Subtract</button>
+    <button id="multiply">Multiply</button>
+    <button id="divide">Divide</button>
+
+    <h3>Result: <span id="result">0</span></h3>
+
+    <script>
+        // Get the elements by their IDs
+        const number1 = document.getElementById('number1');
+        const number2 = document.getElementById('number2');
+        const result = document.getElementById('result');
+        
+        // Functions to perform calculations
+        function add() {
+            const num1 = parseFloat(number1.value);
+            const num2 = parseFloat(number2.value);
+            result.textContent = num1 + num2;
+        }
+
+        function subtract() {
+            const num1 = parseFloat(number1.value);
+            const num2 = parseFloat(number2.value);
+            result.textContent = num1 - num2;
+        }
+
+        function multiply() {
+            const num1 = parseFloat(number1.value);
+            const num2 = parseFloat(number2.value);
+            result.textContent = num1 * num2;
+        }
+
+        function divide() {
+            const num1 = parseFloat(number1.value);
+            const num2 = parseFloat(number2.value);
+            if (num2 === 0) {
+                result.textContent = 'Cannot divide by 0';
+            } else {
+                result.textContent = num1 / num2;
+            }
+        }
+
+        // Event listeners for each button
+        document.getElementById('add').addEventListener('click', add);
+        document.getElementById('subtract').addEventListener('click', subtract);
+        document.getElementById('multiply').addEventListener('click', multiply);
+        document.getElementById('divide').addEventListener('click', divide);
+    </script>
+</body>
+</html>
