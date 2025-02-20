@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-        function myFunction() {
-            // alert("Login sucess!!")
-            let name = document.getElementById("name").value;
-            let password = document.getElementById("password").value;
-            // data.innerHTML=name +"|" +password;
-            if(name=="Hari" && password=="123"){
-                data.innerHTML="Welcome Hari..."
-            }
-            else{
-                data.innerHTML="Invalid User";
-            }
+      function showData() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        //data.innerHTML = `${email}, ${password}`
+        if (email=="john@gmail.com" && password == "1234"){
+            data.innerHTML = 'Welcome John'
         }
+        else {
+            data.innerHTML = 'Access Denied'
+        }
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Login Form</h1>
-    <p><input type="text" id ="name" placeholder="Username"></p>
-    <p><input type="password" id="password" placeholder="Password"></p>
-    <button onclick="myFunction()">Login</button>
-    <hr/>
-    <div id="data">Loading</div>
-
-</body>
+    <p><input type="text" id="email" placeholder="Email Address" /></p>
+    <p><input type="password" id="password" placeholder="Email Password" /></p>
+    <button onclick="showData()">Log In</button>
+    <hr>
+    <div id="data"></div>
+  </body>
 </html>
