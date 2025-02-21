@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "name": "P1",
+      "price": 34,
+      "photo": "https://picsum.photos/200?random=1"
+    },
+    {
+      "id": 2,
+      "name": "P2",
+      "price": 50,
+      "photo": "https://picsum.photos/200?random=2"
+    },
+    {
+      "id": 3,
+      "name": "P3",
+      "price": 40,
+      "photo": "https://picsum.photos/200?random=3"
+    }
+  ]
+  

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My wish</title>
+</head>
+<body>
+    <div id="data"></div>
+    
+    <script>
+        let a = 10;
+        var b = 20;
+        const c = 30;
+        let d = true;
+        let e = "08";
+
+        // Corrected object declaration
+        let student = {
+            name: "Hari",
+            id: 8
+        };
+
+        let players = ["hari", "Krishna"];
+
+        // Fixed reference to 'data' element
+        document.getElementById("data").innerHTML = a + " | " + b + " | " + c;
+
+        // Logging output instead of document.write (better practice)
+        console.log(a + " " + b + " " + c);
+        console.log("Type of a:", typeof a);
+        console.log("Type of b:", typeof b);
+        console.log("Type of c:", typeof c);
+        console.log("Type of d:", typeof d);
+
+        // Convert string to number properly
+        let f = Number(e);
+        console.log("Converted value of e:", f);
+        console.log("Type of f:", typeof f);
+        document.write(players)
+        console.log(typeof(players))
+        document.write(student)
+        console.log(typeof(student))
+        console.log(student)
+        console.log(players)
+        if(a>b){
+            console.log(a,"is greater than",b)
+        }
+        else{
+            console.log(b,"is greater than",a)
+        }
+    </script>
+
+</body>
+</html>
