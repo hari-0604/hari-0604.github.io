@@ -1,228 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Login & Registration</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            width: 400px;
-            background-color: white;
-            padding: 30px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .input-field:focus {
-            border-color: #1d74e8;
-            outline: none;
-        }
-
-        .button {
-            width: 100%;
-            padding: 10px;
-            background-color: #1d74e8;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .button:hover {
-            background-color:#1d74e8;
-        }
-
-        .already-have-account {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .already-have-account a {
-            color: #1d74e8;
-            text-decoration: none;
-        }
-
-        /* Modal Style (Registration Popup) */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: white;
-            width: 400px;
-            padding: 20px;
-            margin: 100px auto;
-            border-radius: 8px;
-        }
-
-        .modal-header {
-            text-align: center;
-        }
-
-        .modal-footer {
-            text-align: center;
-        }
-        
-        /* Close button */
-        .close-btn {
-            background-color: lightcyan;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .close-btn:hover {
-            background-color: wheat;
-        }
-
-        /* Gender radio buttons style */
-        .gender-group {
-            display: flex;
-            justify-content: space-around;
-            margin: 10px 0;
-        }
-
-        .gender-group label {
-            font-size: 14px;
-        }
+      body {
+        background-color: #eeeeee;
+      }
+      .container {
+        background-color: white;
+        border-radius: 20px;
+        padding: 10px;
+        width: 400px;
+        margin: auto;
+      }
+      .row {
+        display: flex;
+        justify-content: center;
+      }
+      .title {
+        font-size: 30px;
+        margin-top: 30px;
+      }
+      .header {
+        font-size: 50px;
+        color: blue;
+        font-weight: bold;
+        font-family: verdana;
+      }
+      .caption {
+        font-size: 20px;
+        color: gray;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+      input,
+      select {
+        width: 100%;
+        margin: 5px;
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid gray;
+      }
+      button {
+        color: white;
+        background-color: green;
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 2px;
+        width: 150px;
+        border: none;
+        margin: 5px;
+      }
+      .leftCaption {
+        color: gray;
+        margin-left: 5px;
+        font-size: 10px;
+      }
+      .qMark {
+        background-color: green;
+        border-radius: 5px;
+        color: white;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin: 2px;
+      }
+      .radioClass {
+        border: 1px solid gray;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 5px;
+        border-radius: 5px;
+        padding: 3px;
+      }
+      .checkboxClass {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
     </style>
-</head>
-<body>
-
-<!-- Login Form -->
-<div class="container" id="login-form">
-    <h2>Log into Facebook</h2>
-    <form onsubmit="handleLogin(event)">
-        <input type="email" class="input-field" placeholder="Email or Phone" required><br>
-        <input type="password" class="input-field" placeholder="Password" required><br>
-        <button type="submit" class="button">Log In</button>
-    </form>
-    <div class="already-have-account">
-        <a href="javascript:void(0)" onclick="showRegistration()">Create new account</a>
-    </div>
-</div>
-
-<!-- Registration Modal (Hidden by default) -->
-<div id="registration-modal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2>Sign Up</h2>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="header">facebook</div>
+      </div>
+      <div class="row">
+        <div>
+          <div class="title">Create a new account</div>
+          <div class="caption">It's quick and easy.</div>
         </div>
-        <form id="registration-form" onsubmit="handleRegistration(event)">
-            <input type="text" id="first-name" class="input-field" placeholder="First Name" required><br>
-            <input type="text" id="last-name" class="input-field" placeholder="Last Name" required><br>
-            <input type="email" id="email" class="input-field" placeholder="Email" required><br>
-            <input type="password" id="password" class="input-field" placeholder="Password" required><br>
+      </div>
+      <hr />
+      <div id="root"></div>
+    </div>
+    <script>
+      const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      let firstname = "";
+      let surname = "";
+      let email = "";
+      let password = "";
+      let gender = 0;
+      let dd = null;
+      let mm;
+      let yy;
+      let pronoun;
+      let g = "";
+      let interests = [];
+
+      const showData = () => {
+        firstname = document.getElementById("firstname").value;
+        surname = document.getElementById("surname").value;
+        email = document.getElementById("email").value;
+        password = document.getElementById("password").value;
+        gender = document.getElementsByName("gender");
+        pronoun = document.getElementById("prSelect").value;
+        dd = Number(document.getElementById("day").value);
+        mm = Number(document.getElementById("month").value);
+        yy = Number(document.getElementById("year").value);
+
+        interests = [];
+        const checkboxes = document.querySelectorAll('input[name="interest"]:checked');
+        checkboxes.forEach((checkbox) => {
+          interests.push(checkbox.value);
+        });
+
+        let dob = `${dd}-${months[mm]}-${yy}`;
+        g = "";
+        if (gender[0].checked) g = "Female";
+        if (gender[1].checked) g = "Male";
+        if (gender[2].checked) g = pronoun;
+        let str = `
+          <h3>Verify your information</h3>
+          <p>Name:${firstname} ${surname}</p>
+          <p>Email:${email}</p>
+          <p>Password:${password}</p>
+          <p>Gender:${g}</p>
+          <p>Date of Birth:${dob}</p>
+          <p>Interests: ${interests.join(", ")}</p>
+          <button>Confirm</button>
+          <button onclick=showForm()>Edit</button>
+        </div>
+        `;
+        root.innerHTML = str;
+      };
+
+      const f1 = () => {
+        let str = "";
+        let dt = new Date();
+        let d = dd ?? dt.getDate();
+        let m = mm ?? dt.getMonth();
+        let y = yy ?? dt.getFullYear();
+        if (pronoun != "NA") prSelect.style.display = "block";
+        for (let i = 1; i <= 31; i++) {
+          str += `<option ${i === d && "selected"}>${i}</option>`;
+        }
+        day.innerHTML = str;
+        str = "";
+        for (let i = 0; i <= 11; i++) {
+          str += `<option value=${i} ${i === m && "selected"}>${
+            months[i]
+          }</option>`;
+        }
+        month.innerHTML = str;
+        str = "";
+        for (let i = 1905; i <= 2025; i++) {
+          str += `<option ${i === y && "selected"}>${i}</option>`;
+        }
+        year.innerHTML = str;
+      };
+
+      const showForm = () => {
+        let str = `
+      
+      <div class="row">
+        <input type="text" id="firstname" value='${firstname}' placeholder="Firstname" />
+        <input type="text" id="surname" value='${surname}' placeholder="Surname" />
+      </div>
+      <div class="row" style="justify-content: start">
+        <div class="leftCaption">
+          Date of Birth<span class="qMark"
+            ><abbr title="Click for more information">?</abbr></span
+          >
+        </div>
+      </div>
+      <div class="row">
+        <select id="day"></select>
+        <select id="month"></select>
+        <select id="year"></select>
+      </div>
+      <div class="row" style="justify-content: start">
+        <div class="leftCaption">
+          Gender<span class="qMark"
+            ><abbr title="Click for more information">?</abbr></span
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="radioClass">
+          <div><label> Female</label></div>
+          <div><input type="radio" ${
+            g === "Female" && "checked"
+          } name="gender" onclick="togglePronoun()" /></div>
+        </div>
+        <div class="radioClass">
+          <div><label> Male</label></div>
+          <div><input type="radio" ${
+            g === "Male" && "checked"
+          } name="gender" onclick="togglePronoun()" /></div>
+        </div>
+        <div class="radioClass">
+          <div><label> Custom</label></div>
+          <div><input type="radio" ${
+            pronoun != "NA" && "checked"
+          } name="gender" onclick="togglePronoun()" /></div>
+        </div>
+      </div>
+
+      <!-- Interests Section -->
+      <div class="row" style="justify-content: start">
+        <div class="leftCaption">
+          Interests<span class="qMark"
+            ><abbr title="Select your interests">?</abbr></span
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="checkboxClass">
+          <input type="checkbox" name="interest" value="Movies" /> <label>Movies</label>
+        </div>
+        <div class="checkboxClass">
+          <input type="checkbox" name="interest" value="Music" /> <label>Music</label>
+        </div>
+        <div class="checkboxClass">
+          <input type="checkbox" name="interest" value="Sports" /> <label>Sports</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <select id="prSelect" style="display:none">
+          <option value="NA" >Select your pronoun</option>
+          <option value="She" >She: "Wish her a happy birthday"</option>
+          <option value="He">He: "Wish him a happy birthday"</option>
+          <option value="They" >They: "Wish them a happy birthday"</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <input type="text" value='${email}' id="email" placeholder="Mobile number or email address" />
+      </div>
+      <div class="row">
+        <input type="password" value='${password}' id="password" placeholder="New password" />
+        <img src="eye-hide.png" id='toggleEye' onclick='togglePwd()' width="40px">
+      </div>
+      
+      <div class="row">
+        <button onclick='showData()'>Sign Up</button>
+      </div>
+      `;
+        root.innerHTML = str;
+        f1();
+      };
+
+      showForm();
+
+      const togglePwd = () => {
+        let pwd = document.getElementById("password");
+        if (pwd.type === "password") {
+          document.getElementById("toggleEye").src =
+            "eye-show.png";
+          pwd.type = "text";
+        } else {
+          document.getElementById("toggleEye").src =
+            "eye-hide.png";
             
-            <!-- Date of Birth Field -->
-            <label for="dob" style="font-size: 14px;">Date of Birth</label><br>
-            <input type="date" id="dob" class="input-field" required><br>
+          pwd.type = "password";
+        }
+      };
 
-            <!-- Gender Field -->
-            <div class="gender-group">
-                <label>
-                    <input type="radio" name="gender" value="Male" required> Male
-                </label>
-                <label>
-                    <input type="radio" name="gender" value="Female"> Female
-                </label>
-                <label>
-                    <input type="radio" name="gender" value="Other"> Other
-                </label>
-            </div>
-
-            <button type="submit" class="button">Create Account</button>
-        </form>
-        <div class="modal-footer">
-            <button class="close-btn" onclick="closeModal()">Close</button>
-        </div>
-    </div>
-</div>
-
-<!-- JavaScript -->
-<script>
-    // Show the registration form as a modal
-    function showRegistration() {
-        document.getElementById('login-form').style.display = 'none'; // Hide login form
-        document.getElementById('registration-modal').style.display = 'block'; // Show registration form
-    }
-
-    // Close the registration form modal
-    function closeModal() {
-        document.getElementById('registration-modal').style.display = 'none';
-        document.getElementById('login-form').style.display = 'block';
-    }
-
-    // Handle login form submission
-    function handleLogin(event) {
-        event.preventDefault();
-        alert("Login successful! Redirecting to your account...");
-    }
-
-    // Handle registration form submission (store in localStorage for demo purposes)
-    function handleRegistration(event) {
-        event.preventDefault();
-        
-        // Get form values
-        const firstName = document.getElementById('first-name').value;
-        const lastName = document.getElementById('last-name').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const dob = document.getElementById('dob').value;
-        const gender = document.querySelector('input[name="gender"]:checked').value;
-        
-        // Simulate saving the user data to the database (we'll store it in localStorage here)
-        const userData = {
-            firstName,
-            lastName,
-            email,
-            password,
-            dob,
-            gender
-        };
-        
-        // Simulate database storage (using localStorage)
-        localStorage.setItem('userData', JSON.stringify(userData));
-
-        // Show a success popup with the entered data
-        alert(`Account created successfully!\n\nDetails:\nName: ${firstName} ${lastName}\nEmail: ${email}\nDate of Birth: ${dob}\nGender: ${gender}`);
-
-        // Close modal and reset form
-        closeModal();
-        document.getElementById('registration-form').reset();
-    }
-</script>
-
-</body>
+      const togglePronoun = () => {
+        let p = document.getElementsByName("gender");
+        if (p[2].checked) {
+          prSelect.style.display = "block";
+        } else {
+          prSelect.style.display = "none";
+        }
+      };
+    </script>
+  </body>
 </html>
