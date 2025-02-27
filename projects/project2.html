@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container-fluid {
+            padding: 20px;
+        }
+        .card {
+            margin-top: 20px;
+        }
+        .btn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="header"></div>
+        <div class="row">
+            <div class="d-flex justify-content-center rounded bg-light p-4" id="root"></div>
+        </div>
+        <div class="row bg-secondary text-white text-center p-3 mt-3">
+            <p>&copy; 2025. All rights reserved.</p>
+        </div>
+    </div>
+    <script>
+        let users = [];
+        let user = {};
+        
+        function showHeader() {
+            let str = `
+            <div class="row bg-success p-3 text-white">
+                <div class="col-lg-8">
+                    <h1>My Bank</h1>
+                </div>
+                <div class="col-lg-4 text-end">
+                    <button onclick='showHome()' class='btn btn-light'>Home</button>
+                    ${user.email ? "<button onclick='showLogout()' class='btn btn-danger'>Logout</button>" : "<button onclick='showLogin()' class='btn btn-primary'>Login</button>"}
+                </div>
+            </div>`;
+            document.getElementById("header").innerHTML = str;
+        }
+
+        function showHome() {
+            showHeader();
+            let str = `
+            <div class="card text-center">
+                <div class="card-header">Welcome to My Bank</div>
+                <div class="card-body">
+                    <h5 class="card-title">Best Bank of the Year</h5>
+                    <p class="card-text">Secure and reliable banking at your fingertips.</p>
+                    <button onclick='showForm()' class="btn btn-primary">Create Account</button>
+                </div>
+            </div>`;
+            document.getElementById("root").innerHTML = str;
+        }
+
+        function showForm() {
+            let str = `
+            <div class="card p-4">
+                <h2>Registration Form</h2>
+                <input type="text" class="form-control" id="name" placeholder="Name">
+                <input type="email" class="form-control" id="email" placeholder="Email">
+                <input type="password" class="form-control" id="password" placeholder="Password">
+                <input type="date" class="form-control" id="dob">
+                <button onclick='addUser()' class="btn btn-success">Submit</button>
+                <button onclick='showLogin()' class="btn btn-primary">Login Here</button>
+            </div>`;
+            document.getElementById("root").innerHTML = str;
+        }
+
+        function addUser() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let dob = document.getElementById("dob").value;
+            if (!name || !email || !password || !dob) {
+                alert("Please fill all fields.");
+                return;
+            }
+            users.push({ name, email, password, dob, balance: 0 });
+            alert("Account created successfully!");
+            showLogin();
+        }
+
+        function showLogin() {
+            let str = `
+            <div class="card p-4">
+                <h2>Login Form</h2>
+                <input type="email" class='form-control' id="email" placeholder='Email address'>
+                <input type="password" class='form-control' id="password" placeholder='Password'>
+                <button onclick='chkUser()' class="btn btn-primary">Log In</button>
+                <button onclick='showForm()' class="btn btn-success">Create Account</button>
+                <div id='msg' class='text-danger mt-2'></div>
+            </div>`;
+            document.getElementById("root").innerHTML = str;
+        }
+
+        function chkUser() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let foundUser = users.find(u => u.email === email && u.password === password);
+            if (foundUser) {
+                user = foundUser;
+                home();
+            } else {
+                document.getElementById("msg").innerText = "Invalid Email or Password";
+            }
+        }
+
+        function home() {
+            showHeader();
+            let str = `
+            <div class="card p-4 text-center">
+                <h3>Welcome ${user.name}</h3>
+                <p><b>Current Balance: <span id='spBalance'>${user.balance}</span></b></p>
+                <select id="type" class="form-control" onchange='showUser()'>
+                    <option value=0>--Select--</option>
+                    <option value=1>Deposit</option>
+                    <option value=2>Withdraw</option>
+                </select>
+                <input type="number" id="amount" class="form-control" placeholder="Enter Amount">
+                <button onclick='saveData()' class="btn btn-success">Submit</button>
+            </div>`;
+            document.getElementById("root").innerHTML = str;
+        }
+
+        function saveData() {
+            let amount = Number(document.getElementById("amount").value);
+            let type = document.getElementById("type").value;
+            if (type == "1") {
+                user.balance += amount;
+            } else if (type == "2" && user.balance >= amount) {
+                user.balance -= amount;
+            } else {
+                alert("Invalid Transaction");
+                return;
+            }
+            document.getElementById("spBalance").innerText = user.balance;
+        }
+
+        function showLogout() {
+            user = {};
+            showHome();
+        }
+
+        showHome();
+    </script>
+</body>
+</html>
